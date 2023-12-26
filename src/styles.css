@@ -1,0 +1,137 @@
+
+.back {
+    background-image: url(./images/abc.png);
+    width: 100%;
+    height: 100%;
+    background-size:cover;
+}
+
+.abc {
+    vertical-align: middle;
+    text-align: right;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+    -webkit-box-align: center;
+    box-sizing: border-box;
+    -webkit-box-pack: center;
+    justify-content: center;
+    letter-spacing: 0.25px;
+    transition: all 0.2s ease-in-out 0s;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 7px 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 3px;
+    border-color: transparent;
+    color: white;
+    background-color: #1d2634;
+    text-decoration: none !important;
+}
+
+.pb-4{
+    padding-bottom: 1.5rem!important;
+    border-radius: 6px;
+}
+
+.gxHIdr {
+    display: block;
+    width: 100%;
+    margin: 0px 0px 4px;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 400;
+    letter-spacing: 0.15px;
+    color: rgb(57, 73, 96);
+}
+
+.cKXuiA {
+    position: relative;
+    display: flex;
+    border-radius: 6px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(175, 188, 207);
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.dDXBTB {
+    flex: 1 1 0%;
+}
+
+.eUhKiq {
+    appearance: none;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    letter-spacing: 0.15px;
+    color: rgb(4, 26, 47);
+    background-color: transparent;
+    height: 40px;
+    padding-left: 14px;
+    padding-right: 14px;
+    box-sizing: border-box;
+    margin: 0px;
+    transition: all 0.2s ease-in 0s;
+    border: none;
+    border-radius: 6px;
+}
+
+.btn{
+    background-color:blue;
+}
+
+.home{   
+    background-color: blue;
+    background: rgb(255, 255, 255);
+}
+
+.action-bar {
+    padding: 15px 15px 15px 15px;
+    border-bottom: 1px solid #E3EBF6;
+    margin-bottom: 24px;
+    margin-left: -32px;
+    margin-right: -32px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 80px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    background: #fff;
+    z-index: 99;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.xyz {
+    vertical-align:top;
+    text-align:start;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+    -webkit-box-align: center;
+    box-sizing: border-box;
+    -webkit-box-pack: center;
+    justify-content: center;
+    letter-spacing: 0.25px;
+    transition: all 0.2s ease-in-out 0s;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 7px 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 3px;
+    border-color: transparent; 
+    color: black;
+    background-color: rgb(36, 110, 246);
+}
