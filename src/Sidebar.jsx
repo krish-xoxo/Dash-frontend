@@ -16,37 +16,37 @@ function Sidebar(){
                 </a>
             </li>
             <li className="sidebar-list-item">
-                <a href="/new">
+                <a href="/EarningApproval">
                         <BsGrid3X3GapFill className="icon"/> Earning Approvals
                 </a>
             </li>
             <li className="sidebar-list-item">
-                <a href="/new">
+                <a href="/Reports">
                         <BsMenuButtonWideFill className="icon"/> Reports
                 </a>
             </li>
             <li className="sidebar-list-item">
-                <a href="/new">
+                <a href="/Log">
                         <BsListCheck className="icon"/> Logs
                 </a>
             </li>
             <li className="sidebar-list-item">
-                <a href="/new">
+                <a href="/Group">
                         <BsGrid1X2Fill className="icon"/> Groups
                 </a>
             </li>
             <li className="sidebar-list-item">
-                <a href="/users">
+                <a href="/Users">
                         <BsPeopleFill className="icon"/> Users
                 </a>
             </li>
             <li className="sidebar-list-item">
-                <a href="/new">
+                <a href="/Data">
                         <Bs0SquareFill className="icon"/> Data Integration
                 </a>
             </li>
             <li className="sidebar-list-item">
-                <a href="/new">
+                <a href="/Metric">
                         <BsArrowBarLeft className="icon"/> Metric
                 </a>
             </li>
