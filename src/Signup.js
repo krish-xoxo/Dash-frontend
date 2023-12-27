@@ -36,8 +36,10 @@ function Signup(){
                 axios.post('http://localhost:8081/signup',values)
                 .then(res => {
                     console.log(res);
-                    if(res.data === "Error" && res.data === "Account already created"){
+                    if(res.data === "Error"){
                         alert("Failed! Seems you already have a account. Try logging in !!")
+                    }else if(res.status === "Account already created"){
+                        alert("Seems you already have a account. Try logging in !!")
                     }
                     else{
                         alert("Account created successfully!!");

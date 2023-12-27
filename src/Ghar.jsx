@@ -11,7 +11,7 @@ function Ghar(){
     axios.defaults.withCredentials = true;
     
 	useEffect(() => {
-		axios.get('http://localhost:8081/userprofile')
+		axios.get('http://localhost:8081')
 		.then( res => {
 			if(res.data.Status === "Success"){
 				setAuth(true);
