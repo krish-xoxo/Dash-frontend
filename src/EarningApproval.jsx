@@ -25,7 +25,11 @@ function EarningApproval() {
             <Sidebar />
             <div className="main-container">
                 <div className="main-title">
-                    <h3> Welcome to your Earning Approval</h3>
+                    <h3> Your Earning Approval</h3>
+                </div>
+
+                <div className="boom text-center">
+                    <span> No approval reqquired yet. Come back after sometime! </span>
                 </div>
 
 			</div>

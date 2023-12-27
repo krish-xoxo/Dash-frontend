@@ -25,10 +25,14 @@ function Data() {
             <Sidebar />
             <div className="main-container">
                 <div className="main-title">
-                    <h3> Welcome to Data Integration .</h3>
+                    <h3> Data Integration .</h3>
                 </div>
 
-			</div>
+                <div className="boom text-center">
+                    <span> No data to integrate yet. Come back after sometime!! </span>
+                </div>
+
+			      </div>
     </div>
   )
 }

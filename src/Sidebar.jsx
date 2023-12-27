@@ -7,52 +7,52 @@ function Sidebar(){
         <ul className="sidebar-list">
             <li className="sidebar-list-item">
                 <a href="/dash">
-                        <BsCart3 className="icon"/> Dashboard
+                    <BsCart3 className="icon"/> Dashboard
                 </a>
             </li>
             <li className="sidebar-list-item">
                 <a href="/plans">
-                        <BsFillArchiveFill className="icon"/> Plans
+                    <BsFillArchiveFill className="icon"/> Plans
                 </a>
             </li>
             <li className="sidebar-list-item">
                 <a href="/EarningApproval">
-                        <BsGrid3X3GapFill className="icon"/> Earning Approvals
+                    <BsGrid3X3GapFill className="icon"/> Earning Approvals
                 </a>
             </li>
             <li className="sidebar-list-item">
                 <a href="/Reports">
-                        <BsMenuButtonWideFill className="icon"/> Reports
+                    <BsMenuButtonWideFill className="icon"/> Reports
                 </a>
             </li>
             <li className="sidebar-list-item">
                 <a href="/Log">
-                        <BsListCheck className="icon"/> Logs
+                    <BsListCheck className="icon"/> Logs
                 </a>
             </li>
             <li className="sidebar-list-item">
                 <a href="/Group">
-                        <BsGrid1X2Fill className="icon"/> Groups
+                    <BsGrid1X2Fill className="icon"/> Groups
                 </a>
             </li>
             <li className="sidebar-list-item">
                 <a href="/Users">
-                        <BsPeopleFill className="icon"/> Users
+                    <BsPeopleFill className="icon"/> Users
                 </a>
             </li>
             <li className="sidebar-list-item">
                 <a href="/Data">
-                        <Bs0SquareFill className="icon"/> Data Integration
+                    <Bs0SquareFill className="icon"/> Data Integration
                 </a>
             </li>
             <li className="sidebar-list-item">
-                <a href="/Metric">
-                        <BsArrowBarLeft className="icon"/> Metric
-                </a>
+            <a href="/Metric">
+                <BsArrowBarLeft className="icon"/> Metric
+            </a>
             </li>
             <li className="sidebar-list-item">
                 <a href="/Settings">
-                        <BsFillGearFill className="icon"/> Settings
+                    <BsFillGearFill className="icon"/> Settings
                 </a>
             </li>
             

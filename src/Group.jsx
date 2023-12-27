@@ -25,10 +25,14 @@ function Group() {
             <Sidebar />
             <div className="main-container">
                 <div className="main-title">
-                    <h3> Welcome to Groups.</h3>
+                    <h3> Active Groups.</h3>
                 </div>
 
-			</div>
+                <div className="boom text-center">
+                    <span> No groups yet. Go and create one!! </span>
+                </div>
+
+			      </div>
     </div>
   )
 }

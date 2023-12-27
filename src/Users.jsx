@@ -27,8 +27,8 @@ function Users(){
                 <div className="main-title">
                     <h3> Users</h3>
                 </div>
-                <div className="boom">
-                <span> Please update your profile from the settings. </span>
+                <div className="boom text-center">
+                <span> No users added. Add users to see details. </span>
             </div>
 			</div>
         </div>

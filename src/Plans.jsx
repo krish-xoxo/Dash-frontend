@@ -26,9 +26,11 @@ function Plans(){
             <Sidebar />
             <div className="main-container">
                 <div className="main-title">
-                    <h3> Welcome to your plans.</h3>
+                    <h3> Your plans </h3>
                 </div>
-
+                <div className="boom text-center">
+                    <span> Looks like you have no plans yet. Create one!! </span>
+                </div>
 			</div>
         </div>
     )

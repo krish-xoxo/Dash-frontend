@@ -13,6 +13,9 @@ import Log from './Log';
 import Group from './Group';
 import Data from './Data';
 import Metric from './Metric';
+import Help from './Help';
+import Inbox from './Inbox';
+import Analytics from './Analytics';
 
 function App(){
   return (
@@ -31,6 +34,9 @@ function App(){
             <Route path='/Group' element={<Group />}></Route>
             <Route path='/Data' element={<Data />}></Route>
             <Route path='/Metric' element={<Metric />}></Route>
+            <Route path='/Help' element={<Help />}></Route>
+            <Route path='/Inbox' element={<Inbox />}></Route>
+            <Route path='/Analytics' element={<Analytics />}></Route>
         </Routes>
     </BrowserRouter>
   )

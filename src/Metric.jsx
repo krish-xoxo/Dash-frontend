@@ -25,10 +25,14 @@ function Metric() {
             <Sidebar />
             <div className="main-container">
                 <div className="main-title">
-                    <h3> Welcome to Metric .</h3>
+                    <h3> Metric .</h3>
                 </div>
 
-			</div>
+                <div className="boom text-center">
+                    <span> No metrices to show. Create one !!</span>
+                </div>
+
+			      </div>
     </div>
   )
 }

@@ -14,6 +14,23 @@ function Header(){
         })
     }
 
+    const [message,setMessage] = useState('');
+    const [name,setName] = useState('');
+
+    useEffect(() => {
+		axios.get('http://localhost:8081')
+		.then( res => {
+			if(res.data.Status === "Success"){
+				setName(res.data.name);
+			}else{
+				setMessage(res.data.Message);
+			}
+		})
+		.catch(err => {
+			console.log(err)
+		})
+	},[]);
+
     const handleLogout = () => {
 		axios.get('http://localhost:8081/logout')
 		.then( res => {
@@ -42,7 +59,7 @@ function Header(){
                         <i className="fa-solid fa-circle"> </i>
                     </div>
                     <span>
-                    User
+                    {name}
                     <i className="fa-solid fa-angle-down"></i>
                     </span>
 

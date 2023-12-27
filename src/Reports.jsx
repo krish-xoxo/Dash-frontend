@@ -25,10 +25,14 @@ function Reports() {
             <Sidebar />
             <div className="main-container">
                 <div className="main-title">
-                    <h3> Welcome to Reports</h3>
+                    <h3> Reports</h3>
                 </div>
 
-			</div>
+                <div className="boom text-center">
+                    <span> Looks like you have no reports ready yet. Create one!! </span>
+                </div>
+
+			      </div>
     </div>
   )
 }

@@ -212,7 +212,7 @@ body {
   
   .sidebar-list-item {
     padding: 20px 20px 20px 20px;
-    font-size: 18px;
+    font-size: 18px; 
   }
   
   .sidebar-list-item:hover {
