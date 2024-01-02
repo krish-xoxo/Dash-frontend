@@ -33,15 +33,8 @@ function Dash() {
   }, []);
 
   return (
-    // <Layout>
-      <div>
-        <div className='grid-container'>
-          <Sidebar />
-          <Header />
-          <Ghar />
-        </div>
-      </div>
-    // </Layout>
+
+    <Ghar />
   )
 }
 

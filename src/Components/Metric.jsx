@@ -19,8 +19,6 @@ function Metric() {
   }, []);
 
   return (
-    <Layout>
-      <div className="grid-container">
         <div className="main-container">
           <div className="main-title">
             <h3> Metric .</h3>
@@ -31,8 +29,6 @@ function Metric() {
           </div>
 
         </div>
-      </div>
-    </Layout>
   )
 }
 

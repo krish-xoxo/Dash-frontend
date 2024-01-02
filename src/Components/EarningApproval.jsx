@@ -19,20 +19,16 @@ function EarningApproval() {
   }, []);
 
   return (
-    <Layout>
-      <div className="grid-container">
-        <div className="main-container">
-          <div className="main-title">
-            <h3> Your Earning Approval</h3>
-          </div>
-
-          <div className="boom text-center">
-            <span> No approval required yet. Come back after sometime! </span>
-          </div>
-
-        </div>
+    <div className="main-container">
+      <div className="main-title">
+        <h3> Your Earning Approval</h3>
       </div>
-    </Layout>
+
+      <div className="boom text-center">
+        <span> No approval required yet. Come back after sometime! </span>
+      </div>
+
+    </div>
   )
 }
 

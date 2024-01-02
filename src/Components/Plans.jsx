@@ -19,21 +19,18 @@ function Plans() {
                 }
             })
             .catch(err => { console.log(err) })
-    }, [navigate]);
+    }, []);
 
     return (
-        <Layout>
-            <div className="grid-container">
-                <div className="main-container">
-                    <div className="main-title">
-                        <h3> Your plans </h3>
-                    </div>
-                    <div className="boom text-center">
-                        <span> Looks like you have no plans yet. Create one {name}!! </span>
-                    </div>
-                </div>
+        <div className="main-container">
+            <div className="main-title">
+                <h3> Your plans </h3>
             </div>
-        </Layout>
+            <div className="boom text-center">
+                <span> Looks like you have no plans yet. Create one {name}!! </span>
+            </div>
+        </div>
+
     )
 }
 

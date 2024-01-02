@@ -19,20 +19,16 @@ function Group() {
   }, []);
 
   return (
-    <Layout>
-      <div className="grid-container">
-        <div className="main-container">
-          <div className="main-title">
-            <h3> Active Groups.</h3>
-          </div>
-
-          <div className="boom text-center">
-            <span> No groups yet. Go and create one!! </span>
-          </div>
-
-        </div>
+    <div className="main-container">
+      <div className="main-title">
+        <h3> Active Groups.</h3>
       </div>
-    </Layout>
+
+      <div className="boom text-center">
+        <span> No groups yet. Go and create one!! </span>
+      </div>
+
+    </div>
   )
 }
 

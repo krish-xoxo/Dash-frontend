@@ -70,13 +70,11 @@ const Layout = ({ children }) => {
     }
 
     return (
-        <div>
+        <div className='grid-container'>
             <Header />
             <Sidebar />
-            <main>
-                {mainContent}
-                {children}
-            </main>
+            {mainContent}
+            {children}
         </div>
     )
 }

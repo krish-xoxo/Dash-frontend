@@ -19,20 +19,16 @@ function Data() {
   }, []);
 
   return (
-    <Layout>
-      <div className="grid-container">
-        <div className="main-container">
-          <div className="main-title">
-            <h3> Data Integration .</h3>
-          </div>
-
-          <div className="boom text-center">
-            <span> No data to integrate yet. Come back after sometime!! </span>
-          </div>
-
-        </div>
+    <div className="main-container">
+      <div className="main-title">
+        <h3> Data Integration .</h3>
       </div>
-    </Layout>
+
+      <div className="boom text-center">
+        <span> No data to integrate yet. Come back after sometime!! </span>
+      </div>
+
+    </div>
   )
 }
 

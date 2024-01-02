@@ -59,6 +59,7 @@ function Header() {
                         <i className="fa-solid fa-circle"> </i>
                     </div>
                     <span>
+                        {/* user */}
                         {name}
                         <i className="fa-solid fa-angle-down"></i>
                     </span>

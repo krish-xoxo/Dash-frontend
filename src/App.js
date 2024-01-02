@@ -22,26 +22,28 @@ import Layout from './Components/Layout';
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Login />} ></Route>
-        <Route path='/signup' element={<Signup />}></Route>
-        <Route path='/Dash' element={<Dash />}></Route>
-        <Route path='/Plans' element={<Plans />}></Route>
-        <Route path='/Users' element={<Users />}></Route>
-        <Route path='/userprofile' element={<Userprofile />}></Route>
-        <Route path='/Settings' element={<Settings />}></Route>
-        <Route path='/EarningApproval' element={<EarningApproval />}></Route>
-        <Route path='/Reports' element={<Reports />}></Route>
-        <Route path='/Log' element={<Log />}></Route>
-        <Route path='/Group' element={<Group />}></Route>
-        <Route path='/Data' element={<Data />}></Route>
-        <Route path='/Metric' element={<Metric />}></Route>
-        <Route path='/Help' element={<Help />}></Route>
-        <Route path='/Inbox' element={<Inbox />}></Route>
-        <Route path='/Analytics' element={<Analytics />}></Route>
-        <Route path='*' element={<Error />}></Route>
-        <Route path='Layout' element={<Layout />}></Route>
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path='/' element={<Login />} ></Route>
+          <Route path='/signup' element={<Signup />}></Route>
+          <Route path='/Dash' element={<Dash />}></Route>
+          <Route path='/Plans' element={<Plans />}></Route>
+          <Route path='/Users' element={<Users />}></Route>
+          <Route path='/Settings' element={<Settings />}></Route>
+          <Route path='/EarningApproval' element={<EarningApproval />}></Route>
+          <Route path='/Reports' element={<Reports />}></Route>
+          <Route path='/Log' element={<Log />}></Route>
+          <Route path='/Group' element={<Group />}></Route>
+          <Route path='/Data' element={<Data />}></Route>
+          <Route path='/Metric' element={<Metric />}></Route>
+          <Route path='/Help' element={<Help />}></Route>
+          <Route path='/Inbox' element={<Inbox />}></Route>
+          <Route path='/Analytics' element={<Analytics />}></Route>
+          <Route path='*' element={<Error />}></Route>
+          <Route path='Layout' element={<Layout />}></Route>
+          <Route path='/userprofile' element={<Userprofile />}></Route>
+        </Routes>
+      </Layout>
     </BrowserRouter>
   )
 }

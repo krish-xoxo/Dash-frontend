@@ -19,18 +19,14 @@ function Users() {
     }, []);
 
     return (
-        <Layout>
-            <div className="grid-container">
-                <div className="main-container">
-                    <div className="main-title">
-                        <h3> Users</h3>
-                    </div>
-                    <div className="boom text-center">
-                        <span> No users added. Add users to see details. </span>
-                    </div>
-                </div>
+        <div className="main-container">
+            <div className="main-title">
+                <h3> Users</h3>
             </div>
-        </Layout>
+            <div className="boom text-center">
+                <span> No users added. Add users to see details. </span>
+            </div>
+        </div>
     )
 }
 

@@ -20,18 +20,14 @@ function Log() {
 
 
   return (
-    <Layout>
-      <div className="grid-container">
-        <div className="main-container">
-          <div className="main-title">
-            <h3> Your Logs</h3>
-          </div>
-          <div className="boom text-center">
-            <span> No logs yet. Create one !! </span>
-          </div>
-        </div>
+    <div className="main-container">
+      <div className="main-title">
+        <h3> Your Logs</h3>
       </div>
-    </Layout>
+      <div className="boom text-center">
+        <span> No logs yet. Create one !! </span>
+      </div>
+    </div>
   )
 }
 
