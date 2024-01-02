@@ -1,6 +1,6 @@
 
 .back {
-    background-image: url(./images/abc.png);
+    background-image: url(../images/abc.png);
     width: 100%;
     height: 100%;
     background-size:cover;
@@ -19,14 +19,11 @@
     letter-spacing: 0.25px;
     transition: all 0.2s ease-in-out 0s;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
     padding: 7px 15px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 3px;
     border-color: transparent;
     color: white;
     background-color: #1d2634;
-    text-decoration: none !important;
 }
 
 .pb-4{

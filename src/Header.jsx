@@ -1,56 +1,56 @@
-import React, { useEffect, useState} from "react";
-import {BsSearch, BsJustify} from 'react-icons/bs';
+import React, { useEffect, useState } from "react";
+import { BsSearch, BsJustify } from 'react-icons/bs';
 import axios from "axios";
 
-function Header(){
+function Header() {
 
     let profileDropdownList = document.querySelector(".profile-dropdown-list");
     let btn = document.querySelector(".profile-dropdown-btn");
 
     const toggle = () => {
         profileDropdownList.classList.toggle("active");
-        window.addEventListener("click", function(e){
-            if(!btn.contains(e.target)) profileDropdownList.classList.remove("active")
+        window.addEventListener("click", function (e) {
+            if (!btn.contains(e.target)) profileDropdownList.classList.remove("active")
         })
     }
 
-    const [message,setMessage] = useState('');
-    const [name,setName] = useState('');
+    const [message, setMessage] = useState('');
+    const [name, setName] = useState('');
 
     useEffect(() => {
-		axios.get('http://localhost:8081')
-		.then( res => {
-			if(res.data.Status === "Success"){
-				setName(res.data.name);
-			}else{
-				setMessage(res.data.Message);
-			}
-		})
-		.catch(err => {
-			console.log(err)
-		})
-	},[]);
+        axios.get('http://localhost:8081')
+            .then(res => {
+                if (res.data.Status === "Success") {
+                    setName(res.data.name);
+                } else {
+                    setMessage(res.data.Message);
+                }
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, []);
 
     const handleLogout = () => {
-		axios.get('http://localhost:8081/logout')
-		.then( res => {
-			if(res.data.Status === "Success"){
-				window.location.reload(true);
-			}
-			else{
-				alert("error");
-			}
-		}).catch(err => console.log(err))
-	}
+        axios.get('http://localhost:8081/logout')
+            .then(res => {
+                if (res.data.Status === "Success") {
+                    window.location.reload(true);
+                }
+                else {
+                    alert("error");
+                }
+            }).catch(err => console.log(err))
+    }
 
-    return(
+    return (
         <header className='header'>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
             <div className="menu-icon">
-                <BsJustify className="icon"/>
+                <BsJustify className="icon" />
             </div>
             <div className="header-left">
-                <BsSearch className="icon"/> 
+                <BsSearch className="icon" />
             </div>
 
             <div className="profile-dropdown">
@@ -59,57 +59,57 @@ function Header(){
                         <i className="fa-solid fa-circle"> </i>
                     </div>
                     <span>
-                    {name}
-                    <i className="fa-solid fa-angle-down"></i>
+                        {name}
+                        <i className="fa-solid fa-angle-down"></i>
                     </span>
 
-                <ul className="profile-dropdown-list">
-                    <li className="profile-dropdown-list-item">
-                        <a href="/Userprofile">
-                            <i className="fa-regular fa-user"></i>
-                            Edit Profile
-                        </a>
-                    </li>
+                    <ul className="profile-dropdown-list">
+                        <li className="profile-dropdown-list-item">
+                            <a href="/Userprofile">
+                                <i className="fa-regular fa-user"></i>
+                                Edit Profile
+                            </a>
+                        </li>
 
-                    <li className="profile-dropdown-list-item">
-                        <a href="/Inbox">
-                            <i className="fa-regular fa-envelope"></i>
-                            Inbox
-                        </a>
-                    </li>
+                        <li className="profile-dropdown-list-item">
+                            <a href="/Inbox">
+                                <i className="fa-regular fa-envelope"></i>
+                                Inbox
+                            </a>
+                        </li>
 
-                    <li className="profile-dropdown-list-item">
-                        <a href="/Analytics">
-                            <i className="fa-solid fa-chart-line"></i>
-                            Analytics
-                        </a>
-                    </li>
+                        <li className="profile-dropdown-list-item">
+                            <a href="/Analytics">
+                                <i className="fa-solid fa-chart-line"></i>
+                                Analytics
+                            </a>
+                        </li>
 
-                    <li className="profile-dropdown-list-item">
-                        <a href="/Settings">
-                            <i className="fa-solid fa-sliders"></i>
-                            Settings
-                        </a>
-                    </li>
+                        <li className="profile-dropdown-list-item">
+                            <a href="/Settings">
+                                <i className="fa-solid fa-sliders"></i>
+                                Settings
+                            </a>
+                        </li>
 
-                    <li className="profile-dropdown-list-item">
-                        <a href="/Help">
-                            <i className="fa-regular fa-circle-question"></i>
-                            Help & Support
-                        </a>
-                    </li>
-                    <hr />
-                    <li className="profile-dropdown-list-item">
-                        <a onClick={handleLogout}>
-                            <i className="fa-solid fa-arrow-right-from-bracket" ></i>
-                            Log Out
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                        <li className="profile-dropdown-list-item">
+                            <a href="/Help">
+                                <i className="fa-regular fa-circle-question"></i>
+                                Help & Support
+                            </a>
+                        </li>
+                        <hr />
+                        <li className="profile-dropdown-list-item">
+                            <a onClick={handleLogout}>
+                                <i className="fa-solid fa-arrow-right-from-bracket" ></i>
+                                Log Out
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </header>
-       
+
     )
 
 }
