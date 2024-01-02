@@ -9,16 +9,14 @@ function Plans() {
     const [name, setName] = useState('')
 
     useEffect(() => {
-        axios.get('http://localhost:8081')
-            .then(res => {
-                if (res.data.Status === "Success") {
-                    setName(res.data.name);
-                    console.log(setName);
-                } else {
-                    navigate('/Plans');
-                }
-            })
-            .catch(err => { console.log(err) })
+        // axios.get('http://localhost:8081')
+        //     .then(res => {
+        //         if (res.data.Status === "Success") {
+        //         } else {
+        //             navigate('/Plans');
+        //         }
+        //     })
+        //     .catch(err => { console.log(err) })
     }, []);
 
     return (

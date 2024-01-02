@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BsCart3, BsGrid1X2Fill, BsFillArchiveFill, BsGrid3X3GapFill, Bs0SquareFill, BsPeopleFill, BsListCheck, BsMenuButtonWideFill, BsFillGearFill, BsArrowBarLeft } from "react-icons/bs";
 
 function Sidebar() {
+
+    useEffect((req,res) => {
+        console.log("Hie!")
+    },[])
+
     return (
         <aside id="sidebar">
             <ul className="sidebar-list">

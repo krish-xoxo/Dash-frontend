@@ -4,9 +4,6 @@ import axios from 'axios';
 import '../css/App.css'
 import Ghar from './Ghar'
 import '../css/styles.css'
-// import Layout from './Layout';
-import Sidebar from '../Sidebar';
-import Header from '../Header';
 
 function Dash() {
 

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import Layout from './Layout';
+import { Navigate, useNavigate } from 'react-router-dom/dist/umd/react-router-dom.development';
 
 function Ghar() {
 
     const [auth, setAuth] = useState(false);
     const [message, setMessage] = useState('');
     const [name, setName] = useState('');
+    const navigate = useNavigate();
 
     axios.defaults.withCredentials = true;
 
