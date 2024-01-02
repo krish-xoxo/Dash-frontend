@@ -40,7 +40,6 @@ function App() {
           <Route path='/Inbox' element={<Inbox />}></Route>
           <Route path='/Analytics' element={<Analytics />}></Route>
           <Route path='*' element={<Error />}></Route>
-          <Route path='Layout' element={<Layout />}></Route>
           <Route path='/userprofile' element={<Userprofile />}></Route>
         </Routes>
       </Layout>
