@@ -8,8 +8,7 @@ import valid from "./updatevalidate";
 function Userprofile(){
 
     const [email, setEmail] = useState('');
-    const [name,setName] = useState('');
-    const [auth,setAuth] = useState(false)
+    const [name,setName] = useState('')
 	const [message,setMessage] = useState('')
     const navigate = useNavigate();
     const [errors, setErrors] = useState({})
@@ -58,7 +57,6 @@ function Userprofile(){
 		axios.get('http://localhost:8081')
 		.then( res => {
 			if(res.data.Status === "Success"){
-				setAuth(true);
 				setName(res.data.name);
                 setEmail(res.data.email);
 			}else{
@@ -100,16 +98,6 @@ function Userprofile(){
                     <div className="main-title">
                         <h4> Please update the following.</h4>
                     </div>
-
-                    {
-                    auth ?
-                    <div>
-                    </div>
-                    :
-                    <div>
-                        <h3>{message}</h3>
-					</div>
-			        }
 
                     <div class="pb-4">
                         <label className="sc-dCFHLb gxHIdr"> Enter New Username </label>

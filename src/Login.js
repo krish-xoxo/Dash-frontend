@@ -41,6 +41,7 @@ function Login(){
 		})
 		.catch(err => {
 			console.log(err)
+            alert("Error")
 		})
 	},[]);
 
@@ -55,10 +56,13 @@ function Login(){
                         if(res.data.Status === "Success"){
                             navigate('/Dash');
                         }else{
-                            alert("No record found");
+                            alert("No record found. Check email and password again.");
                         }
                     }) 
-                .catch(e => console.log(e));
+                .catch(e => {
+                    console.log(e);
+                    alert("Error logging in.");
+                });
             }
     }
     

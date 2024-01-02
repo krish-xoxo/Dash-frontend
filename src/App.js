@@ -16,6 +16,7 @@ import Metric from './Metric';
 import Help from './Help';
 import Inbox from './Inbox';
 import Analytics from './Analytics';
+import Error from './Error';
 
 function App(){
   return (
@@ -37,6 +38,7 @@ function App(){
             <Route path='/Help' element={<Help />}></Route>
             <Route path='/Inbox' element={<Inbox />}></Route>
             <Route path='/Analytics' element={<Analytics />}></Route>
+            <Route path='*' element={<Error />}></Route>
         </Routes>
     </BrowserRouter>
   )
