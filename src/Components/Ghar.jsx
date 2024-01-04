@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { Navigate, useNavigate } from 'react-router-dom/dist/umd/react-router-dom.development';
+import { useNavigate } from 'react-router-dom/dist/umd/react-router-dom.development';
 
 function Ghar() {
 
@@ -19,9 +19,12 @@ function Ghar() {
                     setAuth(true);
                     setName(res.data.name);
                     console.log(res.data.name);
+                    navigate('/Dash')
                 } else {
                     setAuth(false);
                     setMessage(res.data.Message);
+                    console.log(res.data.Message);
+                    navigate('/')
                 }
             })
             .catch(err => {

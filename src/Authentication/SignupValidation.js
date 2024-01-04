@@ -11,7 +11,7 @@ function valid(values) {
     if (values.email === "") {
         error.email = "Email field cannot be empty";
     } else if (!email_patt.test(values.email)) {
-        alert("Email did not match the required pattern");
+        error.email = "Email did not match the required pattern";
     }
     else {
         error.email = "";
@@ -19,7 +19,7 @@ function valid(values) {
     if (values.password === "") {
         error.password = "Password field cannot be empty";
     } else if (!pass_patt.test(values.password)) {
-        alert("The password should be of mininum 5 letters and should contain atleast a Uppercase letter and a Lowercase letter");
+        error.password = "The password should be of mininum 5 letters and should contain atleast a Uppercase letter and a Lowercase letter";
     }
     else {
         error.password = "";

@@ -35,11 +35,11 @@ function Signup() {
         if (err.name === "" && err.email === "" && err.password === "") {
             axios.post('http://localhost:8081/signup', values)
                 .then(res => {
-                    console.log(res);
+                    //console.log(res);
                     if (res.data === "Error") {
                         alert("Failed! Seems you already have a account. Try logging in !!")
                     } else if (res.status === "Account already created") {
-                        alert("Seems you already have a account. Try logging in !!")
+                        alert("Failed")
                     }
                     else {
                         alert("Account created successfully!!");
@@ -65,9 +65,9 @@ function Signup() {
                                 <div className="sc-cWSHoV dDXBTB">
                                     <input type="name" placeholder="Enter Your Name" name="name"
                                         onChange={handleInput} className="sc-bmzYkS eUhKiq" />
-                                    {errors.name && <span className="text-danger">{errors.name}</span>}
                                 </div>
                             </div>
+                            {errors.name && <span className="text-danger">{errors.name}</span>}
                             <div className="sc-dtBdUo hHvdph">
                                 <div className="sc-kOHTFB dZoPQT"></div>
                             </div>
@@ -80,9 +80,9 @@ function Signup() {
                                 <div className="sc-cWSHoV dDXBTB">
                                     <input type="email" placeholder="Enter Work Email" name="email"
                                         onChange={handleInput} className="sc-bmzYkS eUhKiq" />
-                                    {errors.email && <span className="text-danger">{errors.email}</span>}
                                 </div>
                             </div>
+                            {errors.email && <span className="text-danger">{errors.email}</span>}
                             <div className="sc-dtBdUo hHvdph">
                                 <div className="sc-kOHTFB dZoPQT"></div>
                             </div>
@@ -96,9 +96,9 @@ function Signup() {
                                 <div className="sc-cWSHoV dDXBTB">
                                     <input type="password" placeholder="Enter Password" name="password"
                                         onChange={handleInput} className="sc-bmzYkS eUhKiq" />
-                                    {errors.password && <span className="text-danger">{errors.password}</span>}
                                 </div>
                             </div>
+                            {errors.password && <span className="text-danger">{errors.password}</span>}
                             <div className="sc-dtBdUo hHvdph">
                                 <div className="sc-kOHTFB dZoPQT"></div>
                             </div>

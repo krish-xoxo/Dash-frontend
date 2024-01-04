@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import validation from "./LoginValidation";
 import axios from "axios";
-import '../css/styles.css'
+import '../css/styles.css';
+
 function Login() {
 
     const [values, setValues] = useState({
@@ -11,10 +12,8 @@ function Login() {
 
     })
     const navigate = useNavigate();
-    const [errors, setErrors] = useState({})
-
-    const [showBtn, setShowBtn] = useState(false)
-
+    const [errors, setErrors] = useState({});
+    const [showBtn, setShowBtn] = useState(false);
 
     useEffect(() => {
         if (values.email && values.email.length && values.password && values.password.length) {
@@ -54,7 +53,8 @@ function Login() {
                 .then(res => {
                     if (res.data.Status === "Success") {
                         navigate('/Dash');
-                    } else {
+                    } 
+                    else {
                         alert("No record found. Check email and password again.");
                     }
                 })
@@ -81,9 +81,9 @@ function Login() {
                                     <div className="sc-cWSHoV dDXBTB">
                                         <input type="email" placeholder="Enter Work Email" name="email"
                                             onChange={handleInput} className="sc-bmzYkS eUhKiq" />
-                                        {errors.email && <span className="text-danger">{errors.email}</span>}
                                     </div>
                                 </div>
+                                {errors.email && <span className="text-danger">{errors.email}</span>}
                                 <div className="sc-dtBdUo hHvdph">
                                     <div className="sc-kOHTFB dZoPQT"></div>
                                 </div>
@@ -97,9 +97,9 @@ function Login() {
                                     <div className="sc-cWSHoV dDXBTB">
                                         <input type="password" placeholder="Enter Password" name="password"
                                             onChange={handleInput} className="sc-bmzYkS eUhKiq" />
-                                        {errors.password && <span className="text-danger">{errors.password}</span>}
                                     </div>
                                 </div>
+                                {errors.password && <span className="text-danger">{errors.password}</span>}
                                 <div className="sc-dtBdUo">
                                     <div className="sc-kOHTFB dZoPQT"></div>
                                 </div>

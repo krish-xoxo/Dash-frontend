@@ -14,9 +14,28 @@ function Header() {
         })
     }
 
+    // const [isDropdownVisible, setDropdownVisible] = useState(false);
+    // const toggleDropdown = () => {
+    //     setDropdownVisible(!isDropdownVisible);
+    // };
+    // const closeDropdown = (e) => {
+    //     if (!e.target.classList.contains("profile-dropdown-btn")) {
+    //         setDropdownVisible(false);
+    //     }
+    // };
+    // useEffect(() => {
+    //     document.addEventListener("click", closeDropdown);
+    //     return () => {
+    //         document.removeEventListener("click", closeDropdown);
+    //     };
+    // },[]);
+
+
 
     const [message, setMessage] = useState('');
     const [name, setName] = useState('');
+
+    axios.defaults.withCredentials = true;
 
     useEffect(() => {
         axios.get('http://localhost:8081')
