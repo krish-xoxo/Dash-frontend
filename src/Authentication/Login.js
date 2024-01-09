@@ -51,16 +51,16 @@ function Login() {
         if (errors.email === "" && errors.password === "") {
             axios.post('http://localhost:8081/login', values)
                 .then(res => {
-                    if (res.data.Status === "Success") {
+                    if(res.data.Status === "Success") {
                         navigate('/Dash');
-                    } 
-                    else {
-                        alert("No record found. Check email and password again.");
-                    }
+                    }  
+                    else{
+                        alert("Oops.. No record found.")
+                    }   
                 })
-                .catch(e => {
-                    console.log(e);
-                    alert("Error logging in.");
+                .catch(err => {
+                    console.log(err);
+                    alert("Oops... Logging failed.");
                 });
         }
     }

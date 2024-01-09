@@ -13,7 +13,7 @@ function validation(values) {
     if (values.password === "") {
         error.password = "Password should not be empty";
     } else if (!pass_patt.test(values.password)) {
-        error.password = "Password did not match";
+        error.password = "Oops sorry..password did not match";
     }
     else {
         error.password = "";

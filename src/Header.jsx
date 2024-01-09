@@ -30,8 +30,6 @@ function Header() {
     //     };
     // },[]);
 
-
-
     const [message, setMessage] = useState('');
     const [name, setName] = useState('');
 

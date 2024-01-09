@@ -23,6 +23,8 @@ function valid(values){
     }
     if(values.age === ""){
         error.age = "";
+    }else if(values.age === null){
+        error.age = "";
     }else if(!agePattern.test(values.age)){
         error.age = "Age cannot be a string and should be < 100";
     }
@@ -37,6 +39,8 @@ function valid(values){
     }
     if(values.mobilenumber === ""){
         error.mobilenumber = "";
+    }else if(values.mobilenumber === null){
+        error.mobilenumber = "";
     }else if(!numPattern.test(values.mobilenumber)){
         error.mobilenumber = "Mobile Number cannot be a string";
     }
@@ -50,6 +54,8 @@ function valid(values){
         error.address = "";
     }
     if(values.pincode === ""){
+        error.pincode = "";
+    }else if(values.pincode === null){
         error.pincode = "";
     }else if(!pinPattern.test(values.pincode)){
         error.pincode = "Pincode cannot be a string and should be equal to 6 digits";

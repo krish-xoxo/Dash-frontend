@@ -7,17 +7,6 @@ import Sidebar from "../Sidebar";
 
 function Userprofile() {
 
-    const [email, setEmail] = useState('');
-    const [name, setName] = useState('');
-    const [age, setAge] = useState('');
-    const [gender, setGender] = useState('');
-    const [mobilenumber, setMobilenumber] = useState('');
-    const [address, setAddress] = useState('');
-    const [pincode, setPincode] = useState('');
-    const [city, setCity] = useState('');
-    const [state, setState] = useState('');
-    const [country, setCountry] = useState('');
-    const [message, setMessage] = useState('')
     const navigate = useNavigate();
     const [errors, setErrors] = useState({})
     const [showBtn, setShowBtn] = useState(false)
@@ -35,19 +24,20 @@ function Userprofile() {
         country: '',
     })
 
-
     axios.defaults.withCredentials = true;
 
     useEffect(() => {
-        if (values.age && values.age.length && values.gender && values.gender.length) {
+        if (values.age && values.age.length) {
             setShowBtn(true);
         } else {
             return;
         }
-    }, [values.name, values.email, values.age, values.gender, values.mobilenumber, values.address, values.pincode, values.city, values.state, values.country]);
+    },[]);
 
     const handleInput = (event) => {
+        // console.log("input");
         setValues(prev => ({ ...prev, [event.target.name]: event.target.value }))
+        console.log(values);
     }
 
     useEffect(() => {
@@ -56,7 +46,7 @@ function Userprofile() {
                 if (res.data.Status === "Success") {
 
                 } else {
-                    navigate('/');
+                    navigate('/');  
                 }
             })
             .catch(err => {
@@ -65,44 +55,21 @@ function Userprofile() {
     }, []);
 
     useEffect(() => {
-        axios.get('http://localhost:8081')
+        axios.get('http://localhost:8081/userdetails')
             .then(res => {
-                if (res.data.Status === "Success") {
-                    setName(res.data.name);
-                    setEmail(res.data.email);
-                    setValues(prev => ({ ...prev, name: res.data.name, email: res.data.email }))
-                } else {
-                    setAuth(false);
-                    setMessage(res.data.Message);
+                console.log(res.data.data);
+                if (res.data.Status === "Update True") {
+                    setValues(res.data.data);
+                    setShowBtn(true)
+                }
+                else {
+                    return;
                 }
             })
             .catch(err => {
                 console.log(err)
             })
     }, []);
-
-    useEffect(() => {
-        axios.get('http://localhost:8081/userprofile')
-            .then(res => {
-                if (res.data.Status === "Update Succesfull") {
-                    setAge(res.data.age);
-                    setGender(res.data.gender);
-                    setMobilenumber(res.data.mobilenumber);
-                    setAddress(res.data.address);
-                    setPincode(res.data.pincode);
-                    setCity(res.data.city);
-                    setState(res.data.state);
-                    setCountry(res.data.country);
-                    setValues(prev => ({ ...prev, age: res.data.age, gender: res.data.gender, mobilenumber: res.data.mobilenumber, address: res.data.address, pincode: res.data.pincode, city: res.data.city, state: res.data.state, country: res.data.country}))
-                }
-                else{
-                    console.log("Error");
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    })
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -111,13 +78,13 @@ function Userprofile() {
         if (err.name === "" && err.email === "" && err.age === "" && err.gender === "" && err.mobilenumber === "" && err.address === "" && err.pincode === "" && err.city === "" && err.state === "" && err.country === "") {
             axios.post('http://localhost:8081/userprofile', values)
                 .then(res => {
-                    if (res.data === "Error") {
+                    if (res.data === "Error - Check the age field and try again. The age field cannot be a string.") {
                         console.log("hie");
                         alert("Update Failed");
                     }
                     else {
                         alert("Update Successfull.")
-                        navigate('/Dash')
+                        navigate('/')
                     }
                 })
                 .catch(e => console.log(e))
@@ -140,7 +107,7 @@ function Userprofile() {
                             <div className="sc-eeDRCY hapxVj">
                                 <div className="sc-koXPp cKXuiA eui-input-container">
                                     <div className="sc-cWSHoV dDXBTB">
-                                        <input type="name" value={name} name="name"
+                                        <input type="text" defaultValue={values.name || ''} name="name"
                                             onChange={handleInput} className="sc-bmzYkS eUhKiq" />
                                     </div>
                                 </div>
@@ -153,7 +120,7 @@ function Userprofile() {
                             <div className="sc-eeDRCY hapxVj">
                                 <div className="sc-koXPp cKXuiA eui-input-container">
                                     <div className="sc-cWSHoV dDXBTB">
-                                        <input type="email" value={email} name="email"
+                                        <input type="text" defaultValue={values.email || ''} name="email"
                                             onChange={handleInput} className="sc-bmzYkS eUhKiq" />
                                     </div>
                                 </div>
@@ -166,8 +133,8 @@ function Userprofile() {
                             <div className="sc-eeDRCY hapxVj">
                                 <div className="sc-koXPp cKXuiA eui-input-container">
                                     <div className="sc-cWSHoV dDXBTB">
-                                        <input type="age" placeholder="Enter Your Age" value = {age} name="age"
-                                            onChange={handleInput} className="sc-bmzYkS eUhKiq" required />
+                                        <input type="text" required placeholder="Enter your age" defaultValue={values.age || ''} name='age' value={values.age || ''}
+                                            onChange={handleInput} className="sc-bmzYkS eUhKiq" />
                                     </div>
                                 </div>
                                 {errors.age && <span className="text-danger">{errors.age}</span>}
@@ -176,9 +143,9 @@ function Userprofile() {
 
                         <div className="pb-4">
                             <div>
-                                <h6><label className="sc-dCFHLb gxHIdr" htmlFor="gender">Choose your Gender(*)</label></h6>
-                                <select name="gender" onChange={handleInput} required>
-                                    <option value="">Please select one…</option>
+                                <h6><label className="sc-dCFHLb gxHIdr">Choose your Gender</label></h6>
+                                <select value={values.gender} name="gender" onChange={handleInput}>
+                                    <option> Please select one...  </option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                     <option value="non-binary">Non-binary</option>
@@ -188,13 +155,12 @@ function Userprofile() {
                             {errors.gender && <span className="text-danger">{errors.gender}</span>}
                         </div>
 
-
                         <div className="pb-4">
                             <label className="sc-dCFHLb gxHIdr"> Enter Your Mobile Number </label>
                             <div className="sc-eeDRCY hapxVj">
                                 <div className="sc-koXPp cKXuiA eui-input-container">
                                     <div className="sc-cWSHoV dDXBTB">
-                                        <input type="mobilenumber" placeholder="Enter Your Mobile Number" name="mobilenumber"
+                                        <input type="text" placeholder="Enter your mobile number" defaultValue={values.mobilenumber || ''} name="mobilenumber"
                                             onChange={handleInput} className="sc-bmzYkS eUhKiq" />
                                     </div>
                                 </div>
@@ -207,7 +173,7 @@ function Userprofile() {
                             <div className="sc-eeDRCY hapxVj">
                                 <div className="sc-koXPp cKXuiA eui-input-container">
                                     <div className="sc-cWSHoV dDXBTB">
-                                        <input type="address" placeholder="Enter Your Address" name="address"
+                                        <input type="text" placeholder="Enter address" defaultValue={values.address || ''} name="address"
                                             onChange={handleInput} className="sc-bmzYkS eUhKiq" />
                                     </div>
                                 </div>
@@ -220,7 +186,7 @@ function Userprofile() {
                             <div className="sc-eeDRCY hapxVj">
                                 <div className="sc-koXPp cKXuiA eui-input-container">
                                     <div className="sc-cWSHoV dDXBTB">
-                                        <input type="pincode" placeholder="Enter Your Pincode" name="pincode"
+                                        <input type="text" placeholder="Enter pincode" defaultValue={values.pincode || ''} name="pincode"
                                             onChange={handleInput} className="sc-bmzYkS eUhKiq" />
                                     </div>
                                 </div>
@@ -233,7 +199,7 @@ function Userprofile() {
                             <div className="sc-eeDRCY hapxVj">
                                 <div className="sc-koXPp cKXuiA eui-input-container">
                                     <div className="sc-cWSHoV dDXBTB">
-                                        <input type="city" placeholder="Enter Your City" name="city"
+                                        <input type="text" placeholder="Enter city" defaultValue={values.city || ''} name="city"
                                             onChange={handleInput} className="sc-bmzYkS eUhKiq" />
                                     </div>
                                 </div>
@@ -246,7 +212,7 @@ function Userprofile() {
                             <div className="sc-eeDRCY hapxVj">
                                 <div className="sc-koXPp cKXuiA eui-input-container">
                                     <div className="sc-cWSHoV dDXBTB">
-                                        <input type="state" placeholder="Enter Your State" name="state"
+                                        <input type="text" placeholder="Enter state" defaultValue={values.state || ''} name="state"
                                             onChange={handleInput} className="sc-bmzYkS eUhKiq" />
                                     </div>
                                 </div>
@@ -259,7 +225,7 @@ function Userprofile() {
                             <div className="sc-eeDRCY hapxVj">
                                 <div className="sc-koXPp cKXuiA eui-input-container">
                                     <div className="sc-cWSHoV dDXBTB">
-                                        <input type="country" placeholder="Enter Your Country" name="country"
+                                        <input type="text" placeholder="Enter country" defaultValue={values.country || ''} name="country"
                                             onChange={handleInput} className="sc-bmzYkS eUhKiq" />
                                     </div>
                                 </div>
@@ -268,10 +234,11 @@ function Userprofile() {
                         </div>
 
                         <div className=" mt-3 text-center">
-                            <button className={!showBtn ? "" : "abc"} disabled={!showBtn} type='submit' tabindex="5" color="primary">
+                            <button className={!showBtn ? "" : "abc"} disabled={!showBtn} type='submit' tabIndex="5" color="primary">
                                 <span> Update Profile </span>
                             </button>
                         </div>
+
                     </div>
                 </div>
             </form>
