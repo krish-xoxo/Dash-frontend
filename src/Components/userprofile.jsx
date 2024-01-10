@@ -84,7 +84,7 @@ function Userprofile() {
                     }
                     else {
                         alert("Update Successfull.")
-                        navigate('/')
+                        navigate('/Userprofile')
                     }
                 })
                 .catch(e => console.log(e))

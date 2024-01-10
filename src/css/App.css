@@ -52,7 +52,7 @@ body {
     font-weight: 500;
     border: 1px solid var(--secondary);
     border-radius: 50px;
-    width: 175px;
+    width: auto;
     cursor: pointer;
     transition: box-shadow 0.2s, background-color 0.2s;
   }

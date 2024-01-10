@@ -36,7 +36,9 @@ function Signup() {
             axios.post('http://localhost:8081/signup', values)
                 .then(res => {
                     console.log(res);
-                    if (res.data === "Error - Email already exists") {
+                    if (res.data === "Oops sorry!! Wrong email input") {
+                        alert("Oops sorry!! Wrong email input !!")
+                    } else if (res.data === "Error - Email already exists") {
                         alert("Failed! Seems you already have a account. Try logging in !!")
                     } else if (res.status === "Account already created") {
                         alert("Failed")
@@ -53,9 +55,6 @@ function Signup() {
     return (
         <div className="back d-flex justify-content-center align-items-center bg-primary vh-100">
             <div className='bg-white p-3 rounded w-25'>
-                <Link to='/'>
-                    <span>Back</span>
-                </Link>
                 <h2 className='pb-4'>Create New Account</h2>
                 <form action="" onSubmit={handleSubmit}>
                     <div className="pb-4">
@@ -109,6 +108,12 @@ function Signup() {
                         <button type='submit' className={!showBtn ? "" : "abc"} disabled={!showBtn} color="primary">
                             <span > Create Your Account </span>
                         </button>
+                    </div>
+
+                    <div className=" mt-3 text-center">
+                        <Link to='/'>
+                            <span> Already a user?? Login here!</span>
+                        </Link>
                     </div>
                 </form>
             </div>

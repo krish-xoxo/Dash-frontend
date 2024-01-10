@@ -1,13 +1,16 @@
 function valid(values){
     let error={};
-    const email_patt = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const namePatt = /^[A-Za-z\s]{1,20}$/;
+    const email_patt = /^[a-zA-Z0-9]+@[^\s@]+\.[^\s@]+$/;
     const pinPattern = /^\d{1,6}$/;
     const agePattern = /^\d{1,2}$/;
-    const numPattern = /^\d{1,13}$/;
+    const numPattern = /^\d{1,10}$/;
     const namePattern = /^[A-Za-z\s]+$/;
 
     if(values.name === ""){
         error.name = "";
+    }else if(!namePatt.test(values.name)){
+        error.name = "Name should not contain special characters and should be less than 20 characters";
     }
     else{
         error.name = "";
@@ -16,7 +19,7 @@ function valid(values){
     if(values.email === ""){
         error.email = "";
     }else if(!email_patt.test(values.email)){
-        error.email = "Email did not match";
+        error.email = "Oops sorry !! Email should not contain special characters";
     }
     else{
         error.email = "";
@@ -42,7 +45,7 @@ function valid(values){
     }else if(values.mobilenumber === null){
         error.mobilenumber = "";
     }else if(!numPattern.test(values.mobilenumber)){
-        error.mobilenumber = "Mobile Number cannot be a string";
+        error.mobilenumber = "Mobile Number cannot be a string and should be 10 digits";
     }
     else{
         error.mobilenumber = "";
@@ -66,15 +69,15 @@ function valid(values){
     if(values.city === ""){
         error.city = "";
     }else if(!namePattern.test(values.city)){
-        error.city = "City field cannot be a interger";
-    }
+        error.city = "City field cannot be a interger and should not contain special character";
+    }   
     else{
         error.city = "";
     }
     if(values.state === ""){
         error.state = "";
     }else if(!namePattern.test(values.state)){
-        error.state = "State filed cannot be a interger";
+        error.state = "State field cannot be a interger and should not contain special character";
     }
     else{
         error.state = "";
@@ -82,11 +85,11 @@ function valid(values){
     if(values.country === ""){
         error.country = "";
     }else if(!namePattern.test(values.country)){
-        error.country = "Country field cannot be a interger";
+        error.country = "Country field cannot be a interger and should not contain special character";
     }
     else{
         error.country = "";
-    }
+    }   
     return error;
 }
 

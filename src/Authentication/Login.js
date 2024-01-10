@@ -55,12 +55,12 @@ function Login() {
                         navigate('/Dash');
                     }  
                     else{
-                        alert("Oops.. No record found.")
+                        alert("Oops!! No record found.")
                     }   
                 })
                 .catch(err => {
                     console.log(err);
-                    alert("Oops... Logging failed.");
+                    alert("Oops!! Logging failed.");
                 });
         }
     }
