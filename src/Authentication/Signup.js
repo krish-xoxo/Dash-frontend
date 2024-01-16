@@ -16,6 +16,7 @@ function Signup() {
 
     const [showBtn, setShowBtn] = useState(false)
 
+    //TO DISABLE BUTTON UNTILL ALL FIELDS ARE FILLED
     useEffect(() => {
         if (values.name && values.name.length && values.email && values.email.length && values.password && values.password.length) {
             setShowBtn(true);
@@ -24,10 +25,12 @@ function Signup() {
         }
     }, [values.name, values.email, values.password]);
 
+    //TO ENTER THE NEW VALUES
     const handleInput = (event) => {
         setValues(prev => ({ ...prev, [event.target.name]: event.target.value }))
     }
 
+    //TO SUBMIT THE FORM 
     const handleSubmit = (event) => {
         event.preventDefault();
         const err = valid(values);
@@ -112,7 +115,7 @@ function Signup() {
 
                     <div className=" mt-3 text-center">
                         <Link to='/'>
-                            <span> Already a user?? Login here!</span>
+                            <span> Already a user?? Login here</span>
                         </Link>
                     </div>
                 </form>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios, { formToJSON } from "axios";
 import { useNavigate } from "react-router-dom";
 import valid from "./updatevalidate";
 import Header from "../Header";
@@ -26,27 +26,54 @@ function Userprofile() {
 
     axios.defaults.withCredentials = true;
 
+    //TO UPLOAD PROFILE PICTURE
+
+    const [file, setFile] = useState();
+
+    const handleFile = (e) => {
+        // console.log(e.target.files[0]);
+        setFile(e.target.files[0]);
+    }
+
+    const handleUpload = () => {
+        const formdata = new FormData();
+        formdata.append('image', file);
+        axios.post('http://localhost:8081/upload', formdata)
+            .then(res => {
+                if (res.data.Status === "Success") {
+                    console.log("Image upload Successfull.");
+                }
+                else {
+                    console.log("Image uploading failed");
+                }
+            })
+            .catch(err => console.log(err))
+    }
+
+    //TO DISABLE THE BUTTON 
     useEffect(() => {
         if (values.age && values.age.length) {
             setShowBtn(true);
         } else {
             return;
         }
-    },[]);
+    }, []);
 
+    //TO ENTER THE NEW VALUES
     const handleInput = (event) => {
         // console.log("input");
         setValues(prev => ({ ...prev, [event.target.name]: event.target.value }))
         console.log(values);
     }
 
+    //TO VALIDATE THE LOGIN[IF USER IS LOGGEDD IN, LOGIN PAGE WILL NOT SHOW]
     useEffect(() => {
         axios.get('http://localhost:8081')
             .then(res => {
                 if (res.data.Status === "Success") {
 
                 } else {
-                    navigate('/');  
+                    navigate('/');
                 }
             })
             .catch(err => {
@@ -54,6 +81,7 @@ function Userprofile() {
             })
     }, []);
 
+    //TO UPDATE THE USER'S DETAILS IN THE USERPROFILE PAGE
     useEffect(() => {
         axios.get('http://localhost:8081/userdetails')
             .then(res => {
@@ -71,12 +99,16 @@ function Userprofile() {
             })
     }, []);
 
+    //TO SUBMIT THE FORM 
     const handleSubmit = (event) => {
         event.preventDefault();
         const err = valid(values);
         setErrors(err);
         if (err.name === "" && err.email === "" && err.age === "" && err.gender === "" && err.mobilenumber === "" && err.address === "" && err.pincode === "" && err.city === "" && err.state === "" && err.country === "") {
-            axios.post('http://localhost:8081/userprofile', values)
+            const formdata = new FormData();
+            formdata.append('image', file);
+            formdata.append('values', JSON.stringify(values))
+            axios.post('http://localhost:8081/userprofile', formdata)
                 .then(res => {
                     if (res.data === "Error - Check the age field and try again. The age field cannot be a string.") {
                         console.log("hie");
@@ -153,6 +185,13 @@ function Userprofile() {
                                 </select>
                             </div>
                             {errors.gender && <span className="text-danger">{errors.gender}</span>}
+                        </div>
+
+                        <div className="pb-4">
+                            <label className="sc-dCFHLb gxHIdr"> Enter New Picture </label>
+                            <input type="file" onChange={handleFile} />
+                            <img src={file} />
+                            {/* <button onClick={handleUpload}>Upload</button> */}
                         </div>
 
                         <div className="pb-4">

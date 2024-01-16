@@ -15,6 +15,7 @@ function Login() {
     const [errors, setErrors] = useState({});
     const [showBtn, setShowBtn] = useState(false);
 
+    //TO DISABLE BUTTON UNTILL ALL FIELDS ARE FILLED
     useEffect(() => {
         if (values.email && values.email.length && values.password && values.password.length) {
             setShowBtn(true)
@@ -23,12 +24,15 @@ function Login() {
         }
     }, [values.email, values.password]);
 
+    //TO ENTER THE NEW VALUES
     const handleInput = (event) => {
         setValues(prev => ({ ...prev, [event.target.name]: event.target.value }))
     }
 
+    //TO RECIEVE THE DATA FROM AXIOS REQUEST
     axios.defaults.withCredentials = true;
 
+    //TO VALIDATE THE LOGIN[IF USER IS LOGGEDD IN, LOGIN PAGE WILL NOT SHOW]
     useEffect(() => {
         axios.get('http://localhost:8081')
             .then(res => {
@@ -44,6 +48,7 @@ function Login() {
             })
     }, []);
 
+    //TO SUBMIT THE FORM 
     const handleSubmit = (event) => {
         event.preventDefault();
         const err = validation(values);
@@ -55,7 +60,7 @@ function Login() {
                         navigate('/Dash');
                     }  
                     else{
-                        alert("Oops!! No record found.")
+                        alert("Oops!! No record found. Create an account to login.")
                     }   
                 })
                 .catch(err => {

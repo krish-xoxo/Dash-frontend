@@ -1,10 +1,22 @@
 function valid(values){
     let error={};
+
+    //PATTERN TO TAKE ONLY ALPHABETS AS INPUT WITHIN 20 CHARACTERS
     const namePatt = /^[A-Za-z\s]{1,20}$/;
+
+    //PATTERN TO TAKE ONLY ALPHABETS AS INPUT AND SHOULD CONTAIN A .[DOT]
     const email_patt = /^[a-zA-Z0-9]+@[^\s@]+\.[^\s@]+$/;
+
+    //PATTERN TO TAKE ONLY INTEGERS AS INPUT WITHIN 6 CHARACTERS
     const pinPattern = /^\d{1,6}$/;
+
+    //PATTERN TO TAKE ONLY INTEGERS AS INPUT LESS THAN 100
     const agePattern = /^\d{1,2}$/;
+
+    //PATTERN TO TAKE ONLY INTEGERS AS INPUT WITHIN 10 CHARACTERS
     const numPattern = /^\d{1,10}$/;
+
+    //PATTERN TO TAKE ONLY APLHABETS AS INPUT
     const namePattern = /^[A-Za-z\s]+$/;
 
     if(values.name === ""){
