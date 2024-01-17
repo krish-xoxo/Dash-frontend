@@ -14,26 +14,34 @@ function Header() {
         })
     }
 
-    // const [isDropdownVisible, setDropdownVisible] = useState(false);
-    // const toggleDropdown = () => {
-    //     setDropdownVisible(!isDropdownVisible);
-    // };
-    // const closeDropdown = (e) => {
-    //     if (!e.target.classList.contains("profile-dropdown-btn")) {
-    //         setDropdownVisible(false);
-    //     }
-    // };
-    // useEffect(() => {
-    //     document.addEventListener("click", closeDropdown);
-    //     return () => {
-    //         document.removeEventListener("click", closeDropdown);
-    //     };
-    // },[]);
-
     const [message, setMessage] = useState('');
     const [name, setName] = useState('');
+    const [pic, setPic] = useState('');
 
     axios.defaults.withCredentials = true;
+
+    //TO UPLOAD PROFILE PICTURE
+    useEffect(() => {
+        axios.get('http://localhost:8081/userdetails')
+            .then(res => {
+                // console.log(res.data.data);
+                if (res.data.Status === "Update True") {
+                    if(res.data.data.image === ''){
+                        setPic("http://localhost:8081/images/pic.png");    
+                    }
+                    else{
+                    setPic("http://localhost:8081/images/".concat(res.data.data.image));
+                    }
+                }
+                else {
+                    return;
+                }
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, []);
+
 
     useEffect(() => {
         axios.get('http://localhost:8081')
@@ -74,6 +82,7 @@ function Header() {
             <div className="profile-dropdown">
                 <div className="profile-dropdown-btn " onClick={toggle}>
                     <div className="profile-img">
+                        <img className="profile-img" src={pic}></img>
                         <i className="fa-solid fa-circle"> </i>
                     </div>
                     <span>

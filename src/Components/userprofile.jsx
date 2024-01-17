@@ -26,28 +26,12 @@ function Userprofile() {
 
     axios.defaults.withCredentials = true;
 
-    //TO UPLOAD PROFILE PICTURE
-
     const [file, setFile] = useState();
 
+    //TO UPLOAD PROFILE PICTURE
     const handleFile = (e) => {
         // console.log(e.target.files[0]);
         setFile(e.target.files[0]);
-    }
-
-    const handleUpload = () => {
-        const formdata = new FormData();
-        formdata.append('image', file);
-        axios.post('http://localhost:8081/upload', formdata)
-            .then(res => {
-                if (res.data.Status === "Success") {
-                    console.log("Image upload Successfull.");
-                }
-                else {
-                    console.log("Image uploading failed");
-                }
-            })
-            .catch(err => console.log(err))
     }
 
     //TO DISABLE THE BUTTON 
@@ -190,8 +174,6 @@ function Userprofile() {
                         <div className="pb-4">
                             <label className="sc-dCFHLb gxHIdr"> Enter New Picture </label>
                             <input type="file" onChange={handleFile} />
-                            <img src={file} />
-                            {/* <button onClick={handleUpload}>Upload</button> */}
                         </div>
 
                         <div className="pb-4">
